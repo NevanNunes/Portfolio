@@ -3,7 +3,7 @@ from django.db import models
 class Project(models.Model):  # <-- Add models.Model here
     title = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.ImageField(upload_to='media/portfolio/images/')
+    image = models.ImageField(upload_to='portfolio/images/')
     github_link = models.URLField(max_length=200)
 
     def __str__(self):
