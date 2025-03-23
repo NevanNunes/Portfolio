@@ -1,6 +1,7 @@
 django==3.2.20  # Last LTS version that still supported ugettext_lazy as deprecated
 django-environ
 django-cors-headers
-
+django-cloudinary-storage
+pillow
 gunicorn
 whitenoise
