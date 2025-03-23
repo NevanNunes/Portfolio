@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',  # Enable CORS for frontend communication
     'home',  # Your Django app
-      # Admin honeypot for security
+      
 ]
 
 # Middleware
@@ -141,4 +141,4 @@ CSRF_TRUSTED_ORIGINS = [
     'https://your-vercel-app.vercel.app',
     'https://nevann.onrender.com'  # Added your Render domain
 ]
-ACCOUNT_USERNAME_BLACKLIST = ['admin', 'superuser', 'user', 'username', 'root', 'omke']
+
