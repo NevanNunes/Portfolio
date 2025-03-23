@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/',include('admin_honeypot.urls', namespace='admin_honeypot')),
+   
     path('omke/', admin.site.urls),
     path('', include('home.urls')),  # Include your home app URLs
 ]
