@@ -139,6 +139,6 @@ LOGGING = {
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3000', 
     'https://your-vercel-app.vercel.app',
-    'https://nevan.onrender.com'  # Added your Render domain
+    'https://nevann.onrender.com'  # Added your Render domain
 ]
 ACCOUNT_USERNAME_BLACKLIST = ['admin', 'superuser', 'user', 'username', 'root', 'omke']
