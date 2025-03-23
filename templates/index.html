@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0"/>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <header id="intro">
+    <div class="intro-content">
+      <h1 class="fluid">Hi,<br/>I am Nevan Nunes.</h1>
+      <p class="tagline">Python Developer & Finance Enthusiast</p>
+    </div>
+    <div class="intro-image">
+        <img src="/static/images/profile.jpg" alt="Nevan Nunes" class="profile-rounded">
+      </div>
+  </header>
+
+  <main>
+    <section id="skills" class="content fluid">
+      <h2><span aria-hidden="true">I can&nbsp;</span>
+        <span class="sr-only">I can do many things.</span>
+      </h2>
+      <ul aria-hidden="true" style="--count: 22" id="skill-list">
+        <!-- Skills will be populated via JavaScript -->
+        <li style="--i: 0">solve.</li>
+        <li style="--i: 1">build.</li>
+        <li style="--i: 2">develop.</li>
+        <li style="--i: 3">learn.</li>
+        <li style="--i: 4">adapt.</li>
+        <li style="--i: 5">debug.</li>
+        <li style="--i: 6">colloborate.</li>
+        <li style="--i: 7">innovate.</li>
+        <li style="--i: 8">optimize.</li>
+        <li style="--i: 9">scale.</li>
+        <li style="--i: 10">get things done</li>
+       
+      </ul>
+    </section>
+
+    <section id="about" class="about-section">
+      <h2 class="fluid section-title">About me.</h2>
+      <div class="about-content">
+        
+        <div class="about-text">
+          <p>Passionate about Python, backend logic, and finance, I thrive on analyzing data and solving complex problems.</p>
+          <p>With a strong, standout mindset, I stay consistent, always learning, and pushing boundaries.</p>
+          <p>Driven by my interest in FinTech and investment banking, I aim to build impactful financial solutions while continuously improving and evolving.</p>
+          <a href="/static/resume.pdf" class="btn" download>Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="project-section">
+      <h2 class="fluid section-title">My projects.</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev-btn">&#10094;</button>
+        <div class="project-carousel" id="project-container">
+          <!-- Projects will be loaded dynamically via JavaScript -->
+        </div>
+        <button class="carousel-btn next-btn">&#10095;</button>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2 class="fluid section-title">Contact Me.</h2>
+      <div class="contact-container">
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="icon">📍</span>
+            <span>Location: Thane, India</span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📧</span>
+            <span>Email: <a href="mailto:nunesnevan@gmail.com">nunesnevan@gmail.com</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="icon">🔗</span>
+            <div class="social-links">
+              <a href="https://github.com/NevanNunes" target="_blank">
+                <i class="fab fa-github"></i> <span class="sr-only">GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/nevan-nunes-9531a1326" target="_blank">
+                <i class="fab fa-linkedin"></i> <span class="sr-only">LinkedIn</span>
+              </a>
+              <a href="https://x.com/Nevan14057420" target="_blank">
+                <i class="fab fa-x-twitter"></i> <span class="sr-only">X</span>
+              </a>
+            </div>
+          </div>
+    </section>
+
+    <section id="ending">
+      <h2 class="fluid">fin.</h2>
+    </section>
+  </main>
+
+  <footer>Made with ❤️ &copy; 2025</footer>
+
+  <a class="theme-toggle" id="theme-toggle">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </a>
+
+  <script type="module" src="/static/js/script.js"></script>
+  <script type="module" src="/static/js/portfolio.js"></script>
+</body>
+</html>

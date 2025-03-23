@@ -1,0 +1,6 @@
+django
+django-environ
+django-cors-headers
+django-admin-honeypot
+gunicorn
+whitenoise

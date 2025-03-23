@@ -1,0 +1,749 @@
+/* Additional styles to complement the existing style.css */
+
+/* Header - Intro with image */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem 5rem;
+  min-height: 90vh;
+  gap: 1rem; /* Reduced gap to bring image closer */
+}
+
+.intro-content {
+  flex: 1;
+}
+
+.intro-image {
+  flex: 0 0 400px; /* Increased from 300px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  margin-top: 0;
+  width: 400px; /* Increased from 300px */
+  height: 400px; /* Increased from 300px */
+}
+
+.intro-image img {
+  width: 400px; /* Increased from 300px */
+  height: 400px; /* Increased from 300px */
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  max-width: none;
+  max-height: none;
+  filter: contrast(1.05) saturate(1.05); /* Slightly improves image appearance */
+}
+
+h1.fluid {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  line-height: 1.1;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+  padding-left: 0;
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  background: linear-gradient(
+    canvasText 60%,
+    color-mix(in oklch, canvas, canvasText)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  --font-level: 4;
+}
+
+/* About Section - Enlarged */
+.about-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+}
+
+.about-content {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+  flex: 2;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Project Carousel */
+.project-section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+}
+
+/* MODIFIED: Updated carousel container for better glassmorphism support */
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: visible; /* Changed from hidden to allow blur effect to extend */
+  isolation: isolate; /* Ensures stacking context */
+  transform-style: preserve-3d; /* Better 3D rendering */
+  perspective: 1000px; /* Adds subtle depth */
+}
+
+.project-carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* MODIFIED: Updated project card styles for proper glassmorphism */
+.project-card {
+  min-width: 350px;
+  background: rgba(255, 255, 255, 0.15); /* More transparent background */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1; /* Ensures proper stacking */
+  position: relative; /* Required for z-index to work */
+  will-change: transform, box-shadow, background; /* Performance optimization */
+  flex: 0 0 auto;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25); /* Slightly more opaque on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ADDED: Specific dark mode overrides with !important */
+[data-theme="dark"] .project-card {
+  background: rgba(20, 20, 30, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .project-card:hover {
+  background: rgba(30, 30, 40, 0.4) !important;
+}
+
+.project-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.project-info p {
+  margin-bottom: 1.5rem;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: color-mix(in oklch, canvas, canvasText 10%);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+  opacity: 0.7;
+  transition: opacity 0.3s, background 0.3s;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  background: color-mix(in oklch, canvas, canvasText 15%);
+}
+
+.prev-btn {
+  left: 1rem;
+}
+
+.next-btn {
+  right: 1rem;
+}
+/* Contact Section Styles */
+.contact-section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  background: color-mix(in oklch, canvas, canvasText 3%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: center;
+}
+
+/* MODIFIED: Enhanced contact form with better glassmorphism */
+.contact-form {
+  flex: 1;
+  max-width: 500px; /* Limit the width for better appearance */
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* ADDED: Dark mode override for contact form */
+[data-theme="dark"] .contact-form {
+  background: rgba(20, 20, 30, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: color-mix(in oklch, canvasText, transparent 20%);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid color-mix(in oklch, canvas, canvasText 10%);
+  border-radius: 5px;
+  background: color-mix(in oklch, canvas, canvasText 2%);
+  color: canvasText;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: oklch(var(--lightness) var(--base-chroma) var(--start));
+  box-shadow: 0 0 0 3px oklch(var(--lightness) var(--base-chroma) var(--start) / 0.2);
+}
+
+.contact-form .btn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(
+    45deg,
+    oklch(var(--lightness) var(--base-chroma) var(--start)),
+    oklch(var(--lightness) var(--base-chroma) calc(var(--start) + 40))
+  );
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.contact-form .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px oklch(var(--lightness) var(--base-chroma) var(--start) / 0.3);
+}
+
+.contact-info {
+  flex: 1;
+  max-width: 500px; /* Match the form width */
+  padding: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.contact-item .icon {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  background: linear-gradient(
+    45deg,
+    oklch(var(--lightness) var(--base-chroma) var(--start)),
+    oklch(var(--lightness) var(--base-chroma) calc(var(--start) + 60))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-links a {
+  color: canvasText;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-links a::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    45deg,
+    oklch(var(--lightness) var(--base-chroma) var(--start)),
+    oklch(var(--lightness) var(--base-chroma) calc(var(--start) + 60))
+  );
+  margin-right: 0.5rem;
+  transition: width 0.3s;
+}
+
+.social-links a:hover {
+  color: oklch(var(--lightness) var(--base-chroma) var(--start));
+}
+
+.social-links a:hover::before {
+  width: 1.5rem;
+}
+
+/* Form feedback messages */
+.form-message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+  font-weight: 500;
+  display: none;
+}
+
+.form-message.success {
+  background-color: oklch(90% 0.1 140);
+  color: oklch(30% 0.1 140);
+  display: block;
+}
+
+.form-message.error {
+  background-color: oklch(90% 0.1 30);
+  color: oklch(40% 0.1 30);
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-form,
+  .contact-info {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .contact-info {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  
+  .contact-form,
+  .contact-info {
+    padding: 1.5rem;
+  }
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(
+    45deg,
+    oklch(var(--lightness) var(--base-chroma) var(--start)),
+    oklch(var(--lightness) var(--base-chroma) var(--end))
+  );
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+  
+  .intro-image {
+    padding-left: 0;
+    width: 350px; /* Slightly smaller on tablets */
+    height: 350px;
+  }
+  
+  .intro-image img {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .about-image {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Add this for smaller phones */
+  .intro-image {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .intro-image img {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* Add this to your portfolio.css file to style the social icons */
+.social-links a i {
+font-size: 1.5rem;
+transition: transform 0.3s;
+}
+
+.social-links a:hover i {
+transform: scale(1.2);
+}
+
+/* Update the social links styling to center the icons */
+.social-links {
+  display: flex;
+  flex-direction: row; /* Change from 'column' to 'row' */
+  gap: 0.75rem;
+}
+
+/* Keep your existing hover style but adjust for the icons */
+.social-links a::before {
+content: '';
+display: none; /* Hide the before element since we just want the icons */
+}
+
+.social-links a:hover {
+  color: oklch(var(--lightness) var(--base-chroma) var(--start));
+}
+
+/* Animation styles for the intro section - MODIFIED TO FIX ISSUES */
+
+/* Fade-in and slide-up animation for text content */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Subtle scale and rotate animation for the profile image */
+@keyframes appearWithRotate {
+  0% {
+      opacity: 0;
+      transform: scale(0.8) rotate(-5deg);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+  }
+}
+
+/* Apply animations to the intro elements */
+.intro-content h1 {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.intro-content .tagline {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* FIX: Ensure the intro image stays visible */
+.intro-image {
+  opacity: 0;
+  animation: appearWithRotate 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* FIX: Modified floating animation to preserve opacity */
+@keyframes float {
+  0% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+  100% {
+      transform: translateY(0px);
+  }
+}
+
+/* FIX: Make sure opacity is set to 1 */
+.intro-image.animated {
+  opacity: 1; /* Ensure it stays visible */
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Additional animations for scrolling sections - MODIFIED TO FIX ISSUES */
+
+/* Base styles for elements that animate on scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* FIX: When the element becomes visible, ensure it stays visible */
+.animate-on-scroll.visible {
+  opacity: 1 !important; /* Added !important to ensure it overrides other styles */
+  transform: translateY(0) !important;
+  /* Make sure these properties persist */
+}
+
+/* Stagger the animations for project cards */
+.project-card.animate-on-scroll {
+  transition-delay: calc(0.1s * var(--i, 0));
+}
+
+/* Add a nice subtle animation for section titles */
+.section-title.animate-on-scroll {
+  transform: translateY(30px);
+}
+
+/* FIX: Ensure section titles stay visible */
+.section-title.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* About section animations */
+.about-content.animate-on-scroll .about-text p {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition-delay: calc(0.2s * var(--i, 0));
+}
+
+/* FIX: Ensure paragraphs stay visible */
+.about-content.visible .about-text p {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Add these new animation styles after your existing animations */
+
+/* Project cards animation */
+@keyframes popIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(30px);
+  }
+  70% {
+      transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+  }
+}
+
+.project-card.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: calc(0.1s * var(--i, 0));
+}
+
+/* MODIFIED: Removed redundant glassmorphism styles and improved compatibility */
+
+/* Glassmorphism styles for cards and sections */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode adjustments with !important for better overrides */
+[data-theme="dark"] .glass-effect {
+  background: rgba(20, 20, 30, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Section transition loader */
+.section-transition {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: oklch(var(--lightness) var(--base-chroma) var(--start));
+z-index: 9999;
+transform: scaleX(0);
+transform-origin: right;
+pointer-events: none;
+}
+
+.section-transition.active {
+animation: section-wipe 1.5s ease-in-out forwards;
+}
+
+@keyframes section-wipe {
+0% {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+50% {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+50.1% {
+  transform-origin: left;
+}
+100% {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+}
+
+/* Loading spinner for section transitions */
+.loading-spinner {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 60px;
+height: 60px;
+z-index: 10000;
+display: none;
+}
+
+.loading-spinner.active {
+display: block;
+animation: fadeInOut 1.5s ease-in-out forwards;
+}
+
+.loading-spinner::after {
+content: '';
+box-sizing: border-box;
+position: absolute;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+border: 5px solid transparent;
+border-top-color: white;
+animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInOut {
+0%, 100% { opacity: 0; }
+25%, 75% { opacity: 1; }
+}
