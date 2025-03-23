@@ -26,7 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',  # Enable CORS for frontend communication
-    'home',  # Your Django app
+    'home',
+    'cloudinary_storage',
+    'cloudinary',# Your Django app
       
 ]
 
@@ -141,4 +143,17 @@ CSRF_TRUSTED_ORIGINS = [
     'https://your-vercel-app.vercel.app',
     'https://nevann.onrender.com'  # Added your Render domain
 ]
+# Add these settings at the bottom of settings.py
+if not DEBUG:  # Only use Cloudinary in production
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': env('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': env('CLOUDINARY_API_KEY'),
+        'API_SECRET': env('CLOUDINARY_API_SECRET')
+    }
+    
+    # Configure Django to use Cloudinary for media files in production
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    # Use local file storage in development
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
