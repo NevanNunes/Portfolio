@@ -26,18 +26,28 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Fetch projects from Django API
+// Fetch projects from static data instead of Django API
 async function fetchProjects() {
     try {
-        const response = await fetch('/projects/');
-        const data = await response.json();
+        // Define static project data with images from /static/images/
+        const projects = [
+            {
+                title: "Skillex",
+                description: "A skill bater system .",
+                image: "/static/images/project-skillex.jpg",
+                github_link: "https://github.com/NevanNunes/portfolio"
+            },
+            {
+                title: "Tweety",
+                description: "A simple and basic clone of twitter.",
+                image: "/static/images/project-tweety.jpg",
+                github_link: "https://github.com/NevanNunes/finance-tracker"
+            }
+            
+        ];
         
         const projectContainer = document.getElementById('project-container');
         projectContainer.innerHTML = '';
-        
-        // Use the data returned from the API, or fallback to sample data
-        const projects = data.projects && data.projects.length > 0 ? data.projects : [
-            // Your fallback data...
-        ];
         
         projects.forEach(project => {
             const projectCard = document.createElement('div');
@@ -57,7 +67,7 @@ async function fetchProjects() {
             projectContainer.appendChild(projectCard);
         });
     } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error('Error loading projects:', error);
     }
 }
 
